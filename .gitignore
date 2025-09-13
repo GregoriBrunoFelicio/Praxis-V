@@ -1,0 +1,53 @@
+# =========================
+# Java
+# =========================
+*.class
+*.log
+*.ctxt
+hs_err_pid*
+replay_pid*
+
+# =========================
+# Package / Build
+# =========================
+target/
+build/
+out/
+bin/
+
+# =========================
+# IDEs & Editors
+# =========================
+
+# VS Code
+.vscode/
+.history/
+*.code-workspace
+
+# IntelliJ IDEA / JetBrains
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Eclipse
+.project
+.classpath
+.settings/
+.metadata/
+.apt_generated/
+.factorypath
+
+# NetBeans
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+# =========================
+# OS files
+# =========================
+.DS_Store
+Thumbs.db
