@@ -6,14 +6,14 @@
 <BorderPane xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="praxisv.LoginController">
-
     <center>
-        <VBox alignment="CENTER" spacing="20">
-            <Label text="Bem-vindo ao Praxis-V" style="-fx-font-size: 24px;" />
-            <TextField promptText="Usuário" />
-            <PasswordField promptText="Senha" />
-            <Button text="Entrar" onAction="#onLoginClick" />
+        <VBox alignment="CENTER" spacing="20" maxWidth="300" maxHeight="250">
+            <Label text="Bem-vindo ao Praxis-V" style="-fx-font-size: 24px;"/>
+            <TextField promptText="Usuário" maxWidth="250"/>
+            <PasswordField promptText="Senha" maxWidth="250"/>
+            <Button text="Entrar" onAction="#onLoginClick" maxWidth="250"/>
         </VBox>
     </center>
+
 
 </BorderPane>

@@ -60,23 +60,19 @@ public class UsuarioController {
         CriarTabela();
     }
 
-    private void CriarTabela() {
-        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
-        colNome.setCellValueFactory(new PropertyValueFactory<>("nomeCompleto"));
-        colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
-        colCargo.setCellValueFactory(new PropertyValueFactory<>("cargo"));
-        colLogin.setCellValueFactory(new PropertyValueFactory<>("login"));
-        colPerfil.setCellValueFactory(new PropertyValueFactory<>("perfil"));
-    }
-
     @FXML
     protected void onCadastrarClick() {
 
-        if(!senhaField.getText().equals(senhaConfirmField.getText())) {
+        criarUsuario();
+        atualizarTabela();
+        limparCampos();
+    }
+
+    private void criarUsuario() {
+        if (!senhaField.getText().equals(senhaConfirmField.getText())) {
             System.out.println("As senhas não coincidem!");
             return;
         }
-
         Usuario usuario = new Usuario(
                 nomeCompletoField.getText(),
                 cpfField.getText(),
@@ -86,13 +82,7 @@ public class UsuarioController {
                 senhaField.getText(),
                 perfilComboBox.getValue()
         );
-
         usuarioService.cadastrar(usuario);
-
-        usuarioTable.getItems().setAll(usuarioService.listar());
-
-
-        limparCampos();
     }
 
     private void limparCampos() {
@@ -102,5 +92,20 @@ public class UsuarioController {
         cargoField.clear();
         loginField.clear();
         senhaField.clear();
+        senhaConfirmField.clear();
+        perfilComboBox.setValue(null);
+    }
+
+    private void CriarTabela() {
+        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colNome.setCellValueFactory(new PropertyValueFactory<>("nomeCompleto"));
+        colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+        colCargo.setCellValueFactory(new PropertyValueFactory<>("cargo"));
+        colLogin.setCellValueFactory(new PropertyValueFactory<>("login"));
+        colPerfil.setCellValueFactory(new PropertyValueFactory<>("perfil"));
+    }
+
+    private void atualizarTabela() {
+        usuarioTable.getItems().setAll(usuarioService.listar());
     }
 }
