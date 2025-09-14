@@ -1,0 +1,28 @@
+/* Botões do menu */
+.menu-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 8 16;
+    -fx-cursor: hand;
+}
+
+.menu-button:hover {
+    -fx-background-color: #333333;
+    -fx-background-radius: 5;
+}
+
+/* Botão principal (como "Cadastrar") */
+.primary-button {
+    -fx-background-color: #0078D7;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5;
+    -fx-padding: 8 16;
+    -fx-cursor: hand;
+}
+
+.primary-button:hover {
+    -fx-background-color: #005a9e;
+}

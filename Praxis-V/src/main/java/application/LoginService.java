@@ -1,9 +1,12 @@
 package application;
 
 import domain.Usuario;
+import infrastructure.UsuarioDatabase;
 
 public class LoginService {
-    public void fazerLogin(Usuario usuario) {
 
+    public boolean autenticar(String login, String senha) {
+
+        return UsuarioDatabase.authenticate(login, senha) != null;
     }
 }

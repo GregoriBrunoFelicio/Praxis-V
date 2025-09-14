@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            prefWidth="800" prefHeight="600">
+
+    <Label text="Bem-vindo ao Sistema PraxisV!"
+           style="-fx-font-size: 24px; -fx-font-weight: bold;"
+           layoutX="200" layoutY="250"/>
+
+</AnchorPane>

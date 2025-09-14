@@ -52,17 +52,16 @@ public class UsuarioController {
     @FXML
     private TableView<Usuario> usuarioTable;
 
-
     @FXML
     public void initialize() {
 
         perfilComboBox.getItems().setAll(Perfil.values());
         CriarTabela();
+        atualizarTabela();
     }
 
     @FXML
     protected void onCadastrarClick() {
-
         criarUsuario();
         atualizarTabela();
         limparCampos();

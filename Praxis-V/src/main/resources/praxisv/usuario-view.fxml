@@ -2,37 +2,51 @@
 
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
 
-<VBox xmlns="http://javafx.com/javafx/21"
-      xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="praxisv.UsuarioController"
-      alignment="CENTER" spacing="10"
-      prefWidth="400" prefHeight="400">
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="praxisv.UsuarioController">
 
-    <Label text="Cadastro de Usuário" style="-fx-font-size: 20px;" />
+    <top>
+        <Label text="Cadastro de Usuário"
+               style="-fx-font-size: 22px; -fx-font-weight: bold;"
+               BorderPane.alignment="CENTER"/>
+    </top>
 
-    <TextField fx:id="nomeCompletoField" promptText="Nome completo" maxWidth="300"/>
-    <TextField fx:id="cpfField" promptText="CPF" maxWidth="300"/>
-    <TextField fx:id="emailField" promptText="E-mail" maxWidth="300"/>
-    <TextField fx:id="cargoField" promptText="Cargo" maxWidth="300"/>
-    <TextField fx:id="loginField" promptText="Login" maxWidth="300"/>
-    <PasswordField fx:id="senhaField" promptText="Senha" maxWidth="300"/>
-    <PasswordField fx:id="senhaConfirmField" promptText="Confirmação Senha" maxWidth="300"/>
-    <ComboBox fx:id="perfilComboBox" promptText="Perfil" maxWidth="300"/>
+    <center>
+        <VBox spacing="20">
+            <padding>
+                <Insets top="20" left="40" right="20" bottom="20"/>
+            </padding>
+            <HBox spacing="40" alignment="TOP_LEFT">
+                <VBox spacing="12" alignment="TOP_LEFT">
+                    <TextField fx:id="nomeCompletoField" promptText="Nome completo" prefWidth="500"/>
+                    <TextField fx:id="cpfField" promptText="CPF" prefWidth="500"/>
+                    <TextField fx:id="emailField" promptText="E-mail" prefWidth="500"/>
+                    <TextField fx:id="cargoField" promptText="Cargo" prefWidth="500"/>
+                    <TextField fx:id="loginField" promptText="Login" prefWidth="500"/>
+                    <PasswordField fx:id="senhaField" promptText="Senha" prefWidth="500"/>
+                    <PasswordField fx:id="senhaConfirmField" promptText="Confirmação Senha" prefWidth="500"/>
+                    <ComboBox fx:id="perfilComboBox" promptText="Perfil" prefWidth="500"/>
+                    <Button text="Cadastrar" onAction="#onCadastrarClick" prefWidth="200"/>
+                </VBox>
+                <Pane HBox.hgrow="ALWAYS"/>
+            </HBox>
+        </VBox>
+    </center>
 
-    <Button text="Cadastrar" onAction="#onCadastrarClick" maxWidth="150"/>
+    <bottom>
+        <TableView fx:id="usuarioTable" prefHeight="500">
+            <columns>
+                <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+                <TableColumn fx:id="colNome" text="Nome" prefWidth="200"/>
+                <TableColumn fx:id="colEmail" text="E-mail" prefWidth="200"/>
+                <TableColumn fx:id="colCargo" text="Cargo" prefWidth="150"/>
+                <TableColumn fx:id="colLogin" text="Login" prefWidth="150"/>
+                <TableColumn fx:id="colPerfil" text="Perfil" prefWidth="150"/>
+            </columns>
+        </TableView>
+    </bottom>
 
-
-    <TableView fx:id="usuarioTable" prefWidth="700" prefHeight="300">
-        <columns>
-            <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
-            <TableColumn fx:id="colNome" text="Nome" prefWidth="150"/>
-            <TableColumn fx:id="colEmail" text="E-mail" prefWidth="150"/>
-            <TableColumn fx:id="colCargo" text="Cargo" prefWidth="100"/>
-            <TableColumn fx:id="colLogin" text="Login" prefWidth="100"/>
-            <TableColumn fx:id="colPerfil" text="Perfil" prefWidth="100"/>
-        </columns>
-    </TableView>
-
-
-</VBox>
+</BorderPane>

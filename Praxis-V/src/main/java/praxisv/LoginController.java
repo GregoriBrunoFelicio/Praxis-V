@@ -1,19 +1,42 @@
 package praxisv;
-import javafx.event.ActionEvent;
+
+import application.LoginService;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class LoginController {
-    @FXML
-    protected void onLoginClick(ActionEvent event) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("usuario-view.fxml"));
-        Scene usuarioScene = new Scene(fxmlLoader.load(), 1920, 1080);
+    private final LoginService loginService = new LoginService();
 
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setTitle("Cadastro de Usuário");
-        stage.setScene(usuarioScene);
+    @FXML
+    private TextField loginField;
+    @FXML
+    private PasswordField senhaField;
+
+    @FXML
+    protected void onLoginClick() {
+        String login = loginField.getText();
+        String senha = senhaField.getText();
+
+        if (loginService.autenticar(login, senha)) {
+            abrirTelaPrincipal();
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("Login ou senha inválidos!");
+            alert.showAndWait();
+        }
+    }
+
+    private void abrirTelaPrincipal() {
+        try {
+            Stage stage = (Stage) loginField.getScene().getWindow();
+            ScreenUtils.openScene(stage, "main-view.fxml", "PraxisV - Sistema de Gestão");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
+

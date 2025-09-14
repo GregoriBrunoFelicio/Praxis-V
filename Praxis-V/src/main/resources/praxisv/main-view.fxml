@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="praxisv.MainController"
+            stylesheets="@css/style.css">
+
+    <top>
+        <HBox spacing="20" style="-fx-background-color: #000000; -fx-padding: 10;">
+            <HBox spacing="20" style="-fx-background-color: #000000; -fx-padding: 10;">
+                <Button text="Início" styleClass="menu-button" onAction="#abrirInicio"/>
+                <Button text="Usuários" styleClass="menu-button" onAction="#abrirUsuarios"/>
+            </HBox>
+        </HBox>
+    </top>
+
+    <!-- Área central onde as telas vão aparecer -->
+    <center>
+        <StackPane fx:id="conteudoPrincipal"/>
+    </center>
+
+</BorderPane>
