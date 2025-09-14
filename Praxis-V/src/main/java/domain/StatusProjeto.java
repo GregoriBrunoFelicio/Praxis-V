@@ -1,6 +1,6 @@
-package domain
+package domain;
 
-enum class StatusProjeto {
+public enum StatusProjeto {
     PLANEJADO,
     EM_ANDAMENTO,
     CONCLUIDO,
