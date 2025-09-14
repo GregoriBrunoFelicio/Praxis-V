@@ -1,11 +1,14 @@
 package praxisv;
 
 import application.UsuarioService;
+import domain.Perfil;
 import domain.Usuario;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+
+import java.awt.event.ActionEvent;
 
 public class UsuarioController {
     private UsuarioService usuarioService = new UsuarioService();
@@ -29,19 +32,65 @@ public class UsuarioController {
     private PasswordField senhaField;
 
     @FXML
+    private PasswordField senhaConfirmField;
+
+    @FXML
+    private ComboBox<Perfil> perfilComboBox;
+
+    @FXML
+    private TableColumn<Usuario, Integer> colId;
+    @FXML
+    private TableColumn<Usuario, String> colNome;
+    @FXML
+    private TableColumn<Usuario, String> colEmail;
+    @FXML
+    private TableColumn<Usuario, String> colCargo;
+    @FXML
+    private TableColumn<Usuario, String> colLogin;
+    @FXML
+    private TableColumn<Usuario, String> colPerfil;
+    @FXML
+    private TableView<Usuario> usuarioTable;
+
+
+    @FXML
+    public void initialize() {
+
+        perfilComboBox.getItems().setAll(Perfil.values());
+        CriarTabela();
+    }
+
+    private void CriarTabela() {
+        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colNome.setCellValueFactory(new PropertyValueFactory<>("nomeCompleto"));
+        colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+        colCargo.setCellValueFactory(new PropertyValueFactory<>("cargo"));
+        colLogin.setCellValueFactory(new PropertyValueFactory<>("login"));
+        colPerfil.setCellValueFactory(new PropertyValueFactory<>("perfil"));
+    }
+
+    @FXML
     protected void onCadastrarClick() {
+
+        if(!senhaField.getText().equals(senhaConfirmField.getText())) {
+            System.out.println("As senhas não coincidem!");
+            return;
+        }
+
         Usuario usuario = new Usuario(
                 nomeCompletoField.getText(),
                 cpfField.getText(),
                 emailField.getText(),
                 cargoField.getText(),
                 loginField.getText(),
-                senhaField.getText()
+                senhaField.getText(),
+                perfilComboBox.getValue()
         );
 
-        usuarioService.cadastrarUsuario(usuario);
+        usuarioService.cadastrar(usuario);
 
-        System.out.println("Usuário cadastrado com sucesso: " + usuario);
+        usuarioTable.getItems().setAll(usuarioService.listar());
+
 
         limparCampos();
     }

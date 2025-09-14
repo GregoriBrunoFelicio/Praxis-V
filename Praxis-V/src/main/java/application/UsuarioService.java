@@ -1,26 +1,32 @@
 package application;
 
 import domain.Usuario;
+import infrastructure.UsuarioDatabase;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class UsuarioService {
-    private List<Usuario> usuarios = new ArrayList<>();
 
-    public void cadastrarUsuario(Usuario user) {
-        usuarios.add(user);
-        System.out.println("Usuário cadastrado: " + user.getNomeCompleto());
+    public void cadastrar(Usuario usuario) {
+
+        // TODO: Fazer validaçoes
+        UsuarioDatabase.add(usuario);
     }
 
-    public List<Usuario> listarUsuarios() {
-        return usuarios;
+    public void atualizar(Usuario usuario) {
+        // TODO: Fazer validaçoes
+        UsuarioDatabase.update(usuario);
     }
 
-    public Usuario buscarPorLogin(String login) {
-        return usuarios.stream()
-                .filter(u -> u.getLogin().equals(login))
-                .findFirst()
-                .orElse(null);
+    public Usuario buscarPorId(int id) {
+        return UsuarioDatabase.getById(id);
+    }
+
+    public void remover(int id) {
+        UsuarioDatabase.remove(id);
+    }
+
+    public List<Usuario> listar() {
+        return UsuarioDatabase.getAll();
     }
 }

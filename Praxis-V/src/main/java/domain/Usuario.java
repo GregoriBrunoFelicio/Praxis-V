@@ -1,20 +1,22 @@
 package domain;
 
-public class Usuario {
+public class Usuario extends Entidade {
     private String nomeCompleto;
     private String cpf;
     private String email;
     private String cargo;
     private String login;
     private String senha;
+    private Perfil perfil;
 
-    public Usuario(String nomeCompleto, String cpf, String email, String cargo, String login, String senha) {
+    public Usuario(String nomeCompleto, String cpf, String email, String cargo, String login, String senha, Perfil perfil) {
         this.nomeCompleto = nomeCompleto;
         this.cpf = cpf;
         this.email = email;
         this.cargo = cargo;
         this.login = login;
         this.senha = senha;
+        this.perfil = perfil;
     }
 
     public String getNomeCompleto() { return nomeCompleto; }
@@ -34,4 +36,7 @@ public class Usuario {
 
     public String getSenha() { return senha; }
     public void setSenha(String senha) { this.senha = senha; }
+
+    public Perfil getPerfil() { return perfil; }
+    public void setPerfil(Perfil perfil) { this.perfil = perfil; }
 }
