@@ -4,6 +4,6 @@ module com.example.praxisv {
 
     requires org.kordamp.bootstrapfx.core;
 
-    opens com.example.praxisv to javafx.fxml;
-    exports com.example.praxisv;
+    opens praxisv to javafx.fxml;
+    exports praxisv;
 }

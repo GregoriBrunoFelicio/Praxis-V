@@ -1,4 +1,4 @@
-package com.example.praxisv;
+package praxisv;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
