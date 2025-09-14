@@ -1,6 +1,6 @@
 package domain;
 
-public class User {
+public class Usuario {
     private String nomeCompleto;
     private String cpf;
     private String email;
@@ -8,7 +8,7 @@ public class User {
     private String login;
     private String senha;
 
-    public User(String nomeCompleto, String cpf, String email, String cargo, String login, String senha) {
+    public Usuario(String nomeCompleto, String cpf, String email, String cargo, String login, String senha) {
         this.nomeCompleto = nomeCompleto;
         this.cpf = cpf;
         this.email = email;
