@@ -29,4 +29,10 @@ public class MainController {
         Parent usuarioView = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("usuario-view.fxml")));
         conteudoPrincipal.getChildren().setAll(usuarioView);
     }
+
+    @FXML
+    private void abrirProjetos() throws IOException {
+        Parent projetoView = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("projeto-view.fxml")));
+        conteudoPrincipal.getChildren().setAll(projetoView);
+    }
 }

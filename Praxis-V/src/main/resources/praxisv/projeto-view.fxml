@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="praxisv.ProjetoController">
+
+    <!-- Título -->
+    <top>
+        <Label text="Cadastro de Projeto"
+               style="-fx-font-size: 20px; -fx-font-weight: bold;"
+               BorderPane.alignment="CENTER"/>
+    </top>
+
+    <!-- Formulário -->
+    <center>
+        <VBox spacing="12" alignment="TOP_LEFT">
+            <padding>
+                <Insets top="20" left="40" right="20" bottom="20"/>
+            </padding>
+
+            <TextField fx:id="nomeProjetoField" promptText="Nome do Projeto" prefWidth="400"/>
+            <TextArea fx:id="descricaoField" promptText="Descrição" prefWidth="400" prefHeight="80"/>
+
+            <DatePicker fx:id="dataInicioPicker" promptText="Data de Início"/>
+            <DatePicker fx:id="dataFimPicker" promptText="Data de Término Prevista"/>
+
+            <ComboBox fx:id="statusComboBox" prefWidth="250" promptText="Status"/>
+            <ComboBox fx:id="gerenteComboBox" prefWidth="250" promptText="Gerente Responsável"/>
+
+            <Button text="Cadastrar Projeto"
+                    onAction="#onCadastrarProjetoClick"
+                    styleClass="primary-button"/>
+        </VBox>
+    </center>
+
+    <!-- Tabela -->
+    <bottom>
+        <TableView fx:id="projetoTable" prefHeight="300">
+            <columns>
+                <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+                <TableColumn fx:id="colNome" text="Nome" prefWidth="150"/>
+                <TableColumn fx:id="colDescricao" text="Descrição" prefWidth="200"/>
+                <TableColumn fx:id="colDataInicio" text="Início" prefWidth="100"/>
+                <TableColumn fx:id="colDataFim" text="Término Previsto" prefWidth="120"/>
+                <TableColumn fx:id="colStatus" text="Status" prefWidth="120"/>
+                <TableColumn fx:id="colGerente" text="Gerente" prefWidth="150"/>
+            </columns>
+        </TableView>
+    </bottom>
+</BorderPane>

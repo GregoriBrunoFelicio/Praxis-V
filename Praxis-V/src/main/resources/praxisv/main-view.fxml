@@ -13,6 +13,7 @@
             <HBox spacing="20" style="-fx-background-color: #000000; -fx-padding: 10;">
                 <Button text="Início" styleClass="menu-button" onAction="#abrirInicio"/>
                 <Button text="Usuários" styleClass="menu-button" onAction="#abrirUsuarios"/>
+                <Button text="Projetos" styleClass="menu-button" onAction="#abrirProjetos"/>
             </HBox>
         </HBox>
     </top>

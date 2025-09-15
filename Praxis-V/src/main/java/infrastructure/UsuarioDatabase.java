@@ -9,7 +9,19 @@ public class UsuarioDatabase {
     private static final List<Usuario> usuarios = new ArrayList<>(
             List.of(
                     new Usuario("admin", "000.000.000-00", "admin@email.com",
-                            "Administrador", "admin", "admin", Perfil.ADMINISTRADOR)
+                            "Administrador", "admin", "123", Perfil.ADMINISTRADOR),
+
+                    new Usuario("Gregori Felicio", "000.000.000-00", "gregori@email.com",
+                            "Programador", "gregori", "123", Perfil.COLABORADOR),
+
+                    new Usuario("Maria Silva", "000.000.000-00", "maria@email.com",
+                            "PO", "maria", "123", Perfil.COLABORADOR),
+
+                    new Usuario("Lailla Silva", "000.000.000-00", "lailla@email.com",
+                            "QA", "lailla", "123", Perfil.COLABORADOR),
+
+                    new Usuario("Maicon Silva", "000.000.000-00", "micon@email.com",
+                            "Gerente", "maicon", "123", Perfil.GERENTE)
             )
     );
 

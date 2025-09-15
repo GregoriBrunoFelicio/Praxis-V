@@ -8,8 +8,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-import java.awt.event.ActionEvent;
-
 public class UsuarioController {
     private UsuarioService usuarioService = new UsuarioService();
 
@@ -69,7 +67,10 @@ public class UsuarioController {
 
     private void criarUsuario() {
         if (!senhaField.getText().equals(senhaConfirmField.getText())) {
-            System.out.println("As senhas não coincidem!");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("As senhas não coincidem!");
+            alert.showAndWait();
             return;
         }
         Usuario usuario = new Usuario(
