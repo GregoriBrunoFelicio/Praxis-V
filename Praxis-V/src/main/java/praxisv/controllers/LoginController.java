@@ -3,6 +3,7 @@ package praxisv.controllers;
 import application.LoginService;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -15,6 +16,14 @@ public class LoginController {
     private TextField loginField;
     @FXML
     private PasswordField senhaField;
+
+    @FXML
+    private Button loginButton;
+
+    @FXML
+    public void initialize() {
+        configurarEventos();
+    }
 
     @FXML
     protected void onLoginClick() {
@@ -31,6 +40,7 @@ public class LoginController {
         }
     }
 
+
     private void abrirTelaPrincipal() {
         try {
             Stage stage = (Stage) loginField.getScene().getWindow();
@@ -38,6 +48,26 @@ public class LoginController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void configurarEventos() {
+        loginButton.setDisable(true);
+        loginField.textProperty().addListener((obs, oldVal, newVal) -> validarCampos());
+        senhaField.textProperty().addListener((obs, oldVal, newVal) -> validarCampos());
+        senhaField.setOnAction(event -> {
+            if (camposValidos()) {
+                onLoginClick();
+            }
+        });
+    }
+
+    private void validarCampos() {
+        loginButton.setDisable(!camposValidos());
+    }
+
+    private boolean camposValidos() {
+        return loginField.getText() != null && !loginField.getText().isBlank()
+                && senhaField.getText() != null && !senhaField.getText().isBlank();
     }
 }
 
