@@ -5,8 +5,8 @@
 
 <BorderPane xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="praxisv.MainController"
-            stylesheets="@css/style.css">
+            fx:controller="praxisv.controllers.MainController"
+            stylesheets="@../css/style.css">
 
     <top>
         <HBox spacing="20" style="-fx-background-color: #000000; -fx-padding: 10;">

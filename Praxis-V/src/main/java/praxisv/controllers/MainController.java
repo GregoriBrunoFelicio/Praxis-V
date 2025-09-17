@@ -1,4 +1,4 @@
-package praxisv;
+package praxisv.controllers;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,19 +20,19 @@ public class MainController {
 
     @FXML
     private void abrirInicio() throws IOException {
-        Parent inicioView = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("inicio-view.fxml")));
+        Parent inicioView = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/praxisv/pages/inicio-view.fxml")));
         conteudoPrincipal.getChildren().setAll(inicioView);
     }
 
     @FXML
     private void abrirUsuarios() throws IOException {
-        Parent usuarioView = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("usuario-view.fxml")));
+        Parent usuarioView = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/praxisv/pages/usuario-view.fxml")));
         conteudoPrincipal.getChildren().setAll(usuarioView);
     }
 
     @FXML
     private void abrirProjetos() throws IOException {
-        Parent projetoView = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("projeto-view.fxml")));
+        Parent projetoView = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/praxisv/pages/projeto-view.fxml")));
         conteudoPrincipal.getChildren().setAll(projetoView);
     }
 }

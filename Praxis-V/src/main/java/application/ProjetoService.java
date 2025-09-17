@@ -1,6 +1,6 @@
 package application;
 
-import domain.Projeto;
+import domain.entities.Projeto;
 import infrastructure.ProjetoDatabase;
 
 import java.util.List;

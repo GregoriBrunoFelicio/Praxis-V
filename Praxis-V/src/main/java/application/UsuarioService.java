@@ -1,6 +1,6 @@
 package application;
 
-import domain.Usuario;
+import domain.entities.Usuario;
 import infrastructure.UsuarioDatabase;
 
 import java.util.List;

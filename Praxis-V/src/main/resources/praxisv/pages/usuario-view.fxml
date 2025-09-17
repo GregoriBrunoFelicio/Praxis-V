@@ -6,7 +6,7 @@
 
 <BorderPane xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="praxisv.UsuarioController">
+            fx:controller="praxisv.controllers.UsuarioController">
 
     <top>
         <Label text="Cadastro de Usuário"

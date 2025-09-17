@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 public class App extends Application {
     @Override
     public void start(Stage stage) {
-        ScreenUtils.openScene(stage, "login-view.fxml", "Login - PraxisV");
+        ScreenUtils.openScene(stage, "pages/login-view.fxml", "Login - PraxisV");
     }
     public static void main(String[] args) {
         launch();

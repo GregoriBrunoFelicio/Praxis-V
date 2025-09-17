@@ -1,10 +1,10 @@
-package praxisv;
+package praxisv.controllers;
 
 import application.ProjetoService;
 import application.UsuarioService;
-import domain.Projeto;
-import domain.StatusProjeto;
-import domain.Usuario;
+import domain.entities.Projeto;
+import domain.enums.StatusProjeto;
+import domain.entities.Usuario;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;

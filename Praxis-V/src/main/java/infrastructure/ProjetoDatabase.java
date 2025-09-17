@@ -1,9 +1,9 @@
 package infrastructure;
 
-import domain.Perfil;
-import domain.Projeto;
-import domain.StatusProjeto;
-import domain.Usuario;
+import domain.enums.Perfil;
+import domain.entities.Projeto;
+import domain.enums.StatusProjeto;
+import domain.entities.Usuario;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

@@ -1,8 +1,8 @@
-package praxisv;
+package praxisv.controllers;
 
 import application.UsuarioService;
-import domain.Perfil;
-import domain.Usuario;
+import domain.enums.Perfil;
+import domain.entities.Usuario;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;

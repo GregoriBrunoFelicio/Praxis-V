@@ -1,7 +1,7 @@
 package infrastructure;
 
-import domain.Perfil;
-import domain.Usuario;
+import domain.enums.Perfil;
+import domain.entities.Usuario;
 
 import java.util.*;
 

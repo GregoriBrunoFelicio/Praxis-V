@@ -1,4 +1,6 @@
-package domain;
+package domain.entities;
+
+import domain.enums.StatusProjeto;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

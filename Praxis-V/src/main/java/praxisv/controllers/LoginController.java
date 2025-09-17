@@ -1,4 +1,4 @@
-package praxisv;
+package praxisv.controllers;
 
 import application.LoginService;
 import javafx.fxml.FXML;
@@ -6,6 +6,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import praxisv.ScreenUtils;
 
 public class LoginController {
     private final LoginService loginService = new LoginService();
@@ -33,7 +34,7 @@ public class LoginController {
     private void abrirTelaPrincipal() {
         try {
             Stage stage = (Stage) loginField.getScene().getWindow();
-            ScreenUtils.openScene(stage, "main-view.fxml", "PraxisV - Sistema de Gestão");
+            ScreenUtils.openScene(stage, "pages/main-view.fxml", "PraxisV - Sistema de Gestão");
         } catch (Exception e) {
             e.printStackTrace();
         }

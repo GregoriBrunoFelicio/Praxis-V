@@ -1,4 +1,6 @@
-package domain;
+package domain.entities;
+
+import domain.enums.Perfil;
 
 public class Usuario extends Entidade {
     private String nomeCompleto;

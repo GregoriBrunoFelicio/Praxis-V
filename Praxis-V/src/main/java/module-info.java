@@ -7,4 +7,6 @@ module com.example.praxisv {
 
     opens praxisv to javafx.fxml;
     exports praxisv;
+    exports praxisv.controllers;
+    opens praxisv.controllers to javafx.fxml;
 }

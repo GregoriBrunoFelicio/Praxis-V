@@ -1,4 +1,6 @@
-package domain;
+package domain.entities;
+
+import domain.enums.StatusTarefa;
 
 import java.time.LocalDate;
 

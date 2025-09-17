@@ -1,6 +1,5 @@
 package application;
 
-import domain.Usuario;
 import infrastructure.UsuarioDatabase;
 
 public class LoginService {
