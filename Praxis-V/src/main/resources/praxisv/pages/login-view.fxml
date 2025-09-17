@@ -12,9 +12,7 @@
             <TextField fx:id="loginField"/>
             <Label text="Senha"/>
             <PasswordField fx:id="senhaField"/>
-            <Button text="Entrar" onAction="#onLoginClick" maxWidth="250"/>
+            <Button text="Entrar" onAction="#onLoginClick" maxWidth="250" defaultButton="true"/>
         </VBox>
     </center>
-
-
 </BorderPane>
