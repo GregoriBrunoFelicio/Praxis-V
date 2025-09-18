@@ -2,6 +2,8 @@ package domain.entities;
 
 import domain.enums.Perfil;
 
+import java.util.List;
+
 public class Usuario extends Entidade {
     private String nomeCompleto;
     private String cpf;

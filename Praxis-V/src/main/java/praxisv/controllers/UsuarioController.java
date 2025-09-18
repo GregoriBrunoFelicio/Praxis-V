@@ -4,12 +4,14 @@ import application.UsuarioService;
 import domain.enums.Perfil;
 import domain.entities.Usuario;
 
+import domain.validators.UsuarioValidator;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 public class UsuarioController {
-    private UsuarioService usuarioService = new UsuarioService();
+    private final UsuarioService usuarioService = new UsuarioService();
+    private final UsuarioValidator validator = new UsuarioValidator();
 
     @FXML
     private TextField nomeCompletoField;
@@ -61,8 +63,7 @@ public class UsuarioController {
     @FXML
     protected void onCadastrarClick() {
         criarUsuario();
-        atualizarTabela();
-        limparCampos();
+
     }
 
     private void criarUsuario() {
@@ -82,7 +83,18 @@ public class UsuarioController {
                 senhaField.getText(),
                 perfilComboBox.getValue()
         );
+
+        if (!validator.isValid(usuario)) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Erro de Validação");
+            alert.setContentText("Campos inválidos:\n" + String.join("\n", validator.getErrors()));
+            alert.showAndWait();
+            return;
+        }
+
         usuarioService.cadastrar(usuario);
+        atualizarTabela();
+        limparCampos();
     }
 
     private void limparCampos() {
