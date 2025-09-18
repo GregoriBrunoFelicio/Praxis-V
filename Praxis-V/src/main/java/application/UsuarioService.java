@@ -2,6 +2,7 @@ package application;
 
 import application.interfaces.IService;
 import domain.entities.Usuario;
+import domain.enums.Perfil;
 import infrastructure.UsuarioDatabase;
 
 import java.util.List;
@@ -31,5 +32,12 @@ public class UsuarioService implements IService<Usuario> {
     @Override
     public List<Usuario> listar() {
         return UsuarioDatabase.getAll();
+    }
+
+    public List<Usuario> listarGerentes() {
+        return UsuarioDatabase.getAll()
+                .stream()
+                .filter(u -> u.getPerfil() == Perfil.GERENTE)
+                .toList();
     }
 }

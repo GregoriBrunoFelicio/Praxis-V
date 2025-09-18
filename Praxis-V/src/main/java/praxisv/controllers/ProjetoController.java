@@ -122,7 +122,7 @@ public class ProjetoController {
 
     private void setComboBoxItems() {
         statusComboBox.getItems().setAll(StatusProjeto.values());
-        gerenteComboBox.getItems().setAll(usuarioService.listar());
+        gerenteComboBox.getItems().setAll(usuarioService.listarGerentes());
         gerenteComboBox.setCellFactory(param -> new ListCell<>() {
             @Override
             protected void updateItem(Usuario item, boolean empty) {

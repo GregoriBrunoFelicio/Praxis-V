@@ -9,7 +9,6 @@ import java.util.List;
 public class ProjetoService implements IService<Projeto> {
 
     public void cadastrar(Projeto projeto) {
-
         // TODO: criar validacoes
         ProjetoDatabase.add(projeto);
     }
