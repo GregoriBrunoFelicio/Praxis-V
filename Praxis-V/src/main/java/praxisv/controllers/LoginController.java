@@ -9,6 +9,8 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import praxisv.ScreenUtils;
 
+import static javafx.scene.control.Alert.AlertType.ERROR;
+
 public class LoginController {
     private final LoginService loginService = new LoginService();
 
@@ -33,13 +35,12 @@ public class LoginController {
         if (loginService.autenticar(login, senha)) {
             abrirTelaPrincipal();
         } else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
+            Alert alert = new Alert(ERROR);
             alert.setHeaderText(null);
             alert.setContentText("Login ou senha inválidos!");
             alert.showAndWait();
         }
     }
-
 
     private void abrirTelaPrincipal() {
         try {

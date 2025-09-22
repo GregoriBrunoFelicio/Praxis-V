@@ -40,4 +40,10 @@ public class UsuarioService implements IService<Usuario> {
                 .filter(u -> u.getPerfil() == Perfil.GERENTE)
                 .toList();
     }
+
+    public boolean usuarioExiste(String login) {
+        return UsuarioDatabase.getAll()
+                .stream()
+                .anyMatch(u -> u.getLogin().equalsIgnoreCase(login));
+    }
 }

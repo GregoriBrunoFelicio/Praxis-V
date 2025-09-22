@@ -74,6 +74,11 @@ public class UsuarioController {
             alert.showAndWait();
             return;
         }
+
+        if(usuarioService.usuarioExiste(loginField.getText())) {
+            alertaError("O login já está em uso. Escolha outro.");
+            return;
+        }
         Usuario usuario = new Usuario(
                 nomeCompletoField.getText(),
                 cpfField.getText(),
@@ -84,17 +89,22 @@ public class UsuarioController {
                 perfilComboBox.getValue()
         );
 
+
         if (!validator.isValid(usuario)) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText("Erro de Validação");
-            alert.setContentText("Campos inválidos:\n" + String.join("\n", validator.getErrors()));
-            alert.showAndWait();
+            alertaError("Campos inválidos:\n" + String.join("\n", validator.getErrors()));
             return;
         }
 
         usuarioService.cadastrar(usuario);
         atualizarTabela();
         limparCampos();
+    }
+
+    private void alertaError(String msg) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setHeaderText(null);
+        alert.setContentText(msg);
+        alert.showAndWait();
     }
 
     private void limparCampos() {
