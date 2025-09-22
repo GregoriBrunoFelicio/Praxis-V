@@ -68,10 +68,8 @@ public class ProjetoController {
                 || statusComboBox.getValue() == null
                 || gerenteComboBox.getValue() == null) {
 
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText(null);
-            alert.setContentText("Preencha todos os campos obrigatórios!");
-            alert.showAndWait();
+            alertaError("Preencha todos os campos obrigatórios!");
+
             return;
         }
 
@@ -85,10 +83,7 @@ public class ProjetoController {
         );
 
         if (!validator.isValid(projeto)) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText("Erro de Validação");
-            alert.setContentText("Campos inválidos:\n" + String.join("\n", validator.getErrors()));
-            alert.showAndWait();
+            alertaError("Campos inválidos:\n" + String.join("\n", validator.getErrors()));
             return;
         }
 
@@ -137,5 +132,12 @@ public class ProjetoController {
                 setText(empty || item == null ? null : item.getNomeCompleto());
             }
         });
+    }
+
+    private void alertaError(String msg) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setHeaderText(null);
+        alert.setContentText(msg);
+        alert.showAndWait();
     }
 }
