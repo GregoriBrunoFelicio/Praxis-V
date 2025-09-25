@@ -4,8 +4,8 @@ module com.example.praxisv {
 
     requires org.kordamp.bootstrapfx.core;
     requires java.desktop;
-    requires com.example.praxisv;
 
+    opens domain.entities to javafx.base;
     opens praxisv to javafx.fxml;
     exports praxisv;
     exports praxisv.controllers;
